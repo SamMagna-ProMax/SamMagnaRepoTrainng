@@ -35,6 +35,17 @@
 
 # CELL ********************
 
+#git test
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
 dest_ws_id = "9e63bea0-77f2-4cd2-bc30-749d31851c0c"
 lakehouse_id = "5c3a5650-5485-4b19-beb2-3661c144c400"
 
