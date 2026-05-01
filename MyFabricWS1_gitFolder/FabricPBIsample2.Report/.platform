@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "FabricPBIsample2"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f8ca035f-94d0-9208-400f-46af695b7134"
+  }
+}

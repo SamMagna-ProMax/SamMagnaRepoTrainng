@@ -1,0 +1,32 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/graphqlApi/definition/1.0.0/schema.json",
+  "datasources": [
+    {
+      "objects": [
+        {
+          "actions": {
+            "Query": "Enabled",
+            "Query_by_pk": "Enabled",
+            "Create": "Enabled",
+            "Update": "Enabled",
+            "Delete": "Enabled"
+          },
+          "fieldMappings": {
+            "Category": "Category",
+            "Group": "Group",
+            "ListPrice": "ListPrice",
+            "ProductID": "ProductID",
+            "ProductName": "ProductName"
+          },
+          "graphqlType": "producttst",
+          "relationships": [],
+          "sourceObject": "dbo.producttst",
+          "sourceObjectType": "Table"
+        }
+      ],
+      "sourceItemId": "b64fd717-7de4-407e-abb8-2aa6ccf885ea",
+      "sourceType": "SqlAnalyticsEndpoint",
+      "sourceWorkspaceId": "9e63bea0-77f2-4cd2-bc30-749d31851c0c"
+    }
+  ]
+}

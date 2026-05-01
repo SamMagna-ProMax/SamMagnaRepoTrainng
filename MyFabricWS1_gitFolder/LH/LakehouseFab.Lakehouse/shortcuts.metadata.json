@@ -1,0 +1,54 @@
+[
+  {
+    "name": "FactSalesOrder",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/dbo/FactSalesOrder",
+        "itemId": "8fb565d6-e193-aee9-4207-a09a2f065924",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Warehouse"
+      }
+    }
+  },
+  {
+    "name": "DimProduct",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/dbo/DimProduct",
+        "itemId": "8fb565d6-e193-aee9-4207-a09a2f065924",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Warehouse"
+      }
+    }
+  },
+  {
+    "name": "DimDate",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/dbo/DimDate",
+        "itemId": "8fb565d6-e193-aee9-4207-a09a2f065924",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Warehouse"
+      }
+    }
+  },
+  {
+    "name": "DimCustomer",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/dbo/DimCustomer",
+        "itemId": "8fb565d6-e193-aee9-4207-a09a2f065924",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Warehouse"
+      }
+    }
+  }
+]

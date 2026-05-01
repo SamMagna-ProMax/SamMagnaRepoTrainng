@@ -1,0 +1,65 @@
+table DimProduct
+	lineageTag: d366f264-0032-4788-b915-29e6ffd10175
+
+	column ProductKey
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a608eeea-6a56-421a-bddf-fdaf485d1066
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductAltKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 60f97965-d53a-4127-9e5a-00ccf18c74b6
+		summarizeBy: none
+		sourceColumn: ProductAltKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(8000)
+		lineageTag: 76d0deb0-574a-4bbb-a7df-129c405ee51b
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 33661a92-cdea-4d83-93ce-56757261d888
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column ListPrice
+		dataType: double
+		sourceProviderType: decimal(18, 0)
+		lineageTag: 9ef28fc2-4ba8-48da-9e83-2070972a5bd8
+		summarizeBy: none
+		sourceColumn: ListPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DimProduct = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Databases("udivgrnwe7yefoh44ismj4wiwy-uc7ghhxso7jezpbqosotdbi4bq.datawarehouse.fabric.microsoft.com"),
+				    LakehouseFab = Source{[Name="LakehouseFab"]}[Data],
+				    dbo_DimProduct = LakehouseFab{[Schema="dbo",Item="DimProduct"]}[Data]
+				in
+				    dbo_DimProduct
+
+	annotation PBI_ResultType = Table
+

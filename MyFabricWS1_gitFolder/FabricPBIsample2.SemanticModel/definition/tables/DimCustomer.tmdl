@@ -1,0 +1,108 @@
+table DimCustomer
+	lineageTag: d442b21b-4acb-429e-b9a1-b9829b4fef70
+
+	column CustomerKey
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 56902f73-3c4b-48b6-94ea-81011629d994
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAltKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6003e413-5a65-4b14-afb8-e8b932588a26
+		summarizeBy: none
+		sourceColumn: CustomerAltKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 220de374-22c9-4d29-9618-bfb40996a1f7
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(8000)
+		lineageTag: 3c72521f-d297-4afa-80f8-2e056324d7ab
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fbfbd781-c25b-4750-81d6-bd40ba2b5b2a
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 032582fb-ed0a-46c9-9e30-79f72826d28d
+		summarizeBy: none
+		sourceColumn: AddressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a41b3ae0-be0b-45e5-9aba-61ad09b204fd
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvince
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3dc1bc06-327a-40e9-b0bf-1f76a98ea330
+		summarizeBy: none
+		sourceColumn: StateProvince
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegion
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f98e9f15-7dff-49af-a2df-41f0c15d0ddd
+		summarizeBy: none
+		sourceColumn: CountryRegion
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5434ab2b-c989-4715-928a-a27df85f2d87
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCustomer = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Databases("udivgrnwe7yefoh44ismj4wiwy-uc7ghhxso7jezpbqosotdbi4bq.datawarehouse.fabric.microsoft.com"),
+				    LakehouseFab = Source{[Name="LakehouseFab"]}[Data],
+				    dbo_DimCustomer = LakehouseFab{[Schema="dbo",Item="DimCustomer"]}[Data]
+				in
+				    dbo_DimCustomer
+
+	annotation PBI_ResultType = Table
+
