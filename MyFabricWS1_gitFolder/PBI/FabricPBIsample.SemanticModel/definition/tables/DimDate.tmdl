@@ -1,0 +1,101 @@
+table DimDate
+	lineageTag: aa518c56-012f-4243-b754-30e8e026a372
+
+	column DateKey
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4239d5ef-602d-42ba-8295-f4f71f197707
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateAltKey
+		dataType: dateTime
+		isNullable: false
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 8a48cfb5-bce1-46ed-b420-6bf013b24f54
+		summarizeBy: none
+		sourceColumn: DateAltKey
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DayOfWeek
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 25b6fe67-0d73-4e9d-8444-663bcffe6a2f
+		summarizeBy: none
+		sourceColumn: DayOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekDayName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 26f52ce2-2694-472b-b208-51d72af82cde
+		summarizeBy: none
+		sourceColumn: WeekDayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfMonth
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2236a162-acad-4dcd-a6f2-b5e82bf677ef
+		summarizeBy: none
+		sourceColumn: DayOfMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b1c211c5-33f9-4faa-aea6-4ca53362ca4d
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cf6d70bf-dc0f-4750-aa03-98c526b3e838
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f230d7d6-aa77-4fbd-aebf-395e5b529dc9
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDate = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Databases("udivgrnwe7yefoh44ismj4wiwy-uc7ghhxso7jezpbqosotdbi4bq.datawarehouse.fabric.microsoft.com"),
+				    LakehouseFab = Source{[Name="LakehouseFab"]}[Data],
+				    dbo_DimDate = LakehouseFab{[Schema="dbo",Item="DimDate"]}[Data]
+				in
+				    dbo_DimDate
+
+	annotation PBI_ResultType = Table
+

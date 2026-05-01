@@ -1,0 +1,80 @@
+table FactSalesOrder
+	lineageTag: 34d9bc3c-c32f-4c8d-b1d8-bbec7d4d7f70
+
+	column SalesOrderKey
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b70d73e6-ecb7-4e0c-81dd-1e102ef4f7c4
+		summarizeBy: count
+		sourceColumn: SalesOrderKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderDateKey
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b5b41505-aa70-4abd-bfd8-d14199fbee6e
+		summarizeBy: none
+		sourceColumn: SalesOrderDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ace2cd5c-e1da-44dd-89e2-e707e611ee6a
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerKey
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9a239b1d-533a-4fce-a972-f52092d6c329
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 53b4262d-369f-4024-9707-0d73be4eaacb
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTotal
+		dataType: double
+		sourceProviderType: decimal(18, 0)
+		lineageTag: 73358c1d-c0f3-41ec-8f20-7a46a5095c34
+		summarizeBy: sum
+		sourceColumn: SalesTotal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FactSalesOrder = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Databases("udivgrnwe7yefoh44ismj4wiwy-uc7ghhxso7jezpbqosotdbi4bq.datawarehouse.fabric.microsoft.com"),
+				    LakehouseFab = Source{[Name="LakehouseFab"]}[Data],
+				    dbo_FactSalesOrder = LakehouseFab{[Schema="dbo",Item="FactSalesOrder"]}[Data]
+				in
+				    dbo_FactSalesOrder
+
+	annotation PBI_ResultType = Table
+

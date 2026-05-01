@@ -1,0 +1,14 @@
+relationship 09a90322-0f9d-4fbf-5ee8-4dd514b27eb1
+	crossFilteringBehavior: bothDirections
+	fromColumn: FactSalesOrder.CustomerKey
+	toColumn: DimCustomer.CustomerKey
+
+relationship d996dac7-479a-e069-cd04-c150f4f414b3
+	crossFilteringBehavior: bothDirections
+	fromColumn: FactSalesOrder.ProductKey
+	toColumn: DimProduct.ProductKey
+
+relationship b6aa8796-36fb-d7d8-ee4d-d6e0331de541
+	fromColumn: FactSalesOrder.SalesOrderDateKey
+	toColumn: DimDate.DateKey
+
