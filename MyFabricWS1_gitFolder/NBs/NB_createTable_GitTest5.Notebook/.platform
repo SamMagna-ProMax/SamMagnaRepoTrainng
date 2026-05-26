@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "Notebook",
-    "displayName": "CommonFn_test_GitTestB4",
+    "displayName": "NB_createTable_GitTest5",
     "description": "New notebook"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "dd8e6e6d-ff53-9166-4975-d0c32351db9a"
+    "logicalId": "7bc02a5e-ae77-adc8-493d-5698bec233fb"
   }
 }
